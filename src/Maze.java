@@ -1,3 +1,4 @@
+// Kayan Sunderam
 /**
  * Creates a Maze made up of MazeCells
  * @author Ms. Namasivayam
@@ -147,7 +148,18 @@ public class Maze {
      */
     public boolean isValidCell(int row, int col)
     {
-        // TODO: Complete this function
-        return !(mazeGrid[row][col].isWall()) || (mazeGrid[row][col].isExplored()) || (row < 0) || (col < 0) || (row >= numRows) || (col >= numCols);
+        // Makes sure that we are inside the boundaries of the maze
+        if (row < 0 || col < 0 || row >= numRows || col >= numCols)
+        {
+            return false;
+        }
+        // Makes sure that the cell we are looking at isn't a wall, or isn't something we've already looked at
+        if (mazeGrid[row][col].isWall() || mazeGrid[row][col].isExplored())
+        {
+            return false;
+        }
+        // If the cell is inside the boundaries of the maze, is not a wall, and we haven't already looked at it...
+        // Then the cell is Valid
+        return true;
     }
 }
